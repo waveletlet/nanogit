@@ -42,9 +42,7 @@ Server and access settings are configured in a [YAML](https://en.wikipedia.org/w
 
 ```yaml
 server:
-  port: 1337
-  host: localhost
-  root: /var/nanogit/
+  dataroot: ./dataroot
   user: nanogit
   group: nanogit
 
@@ -77,7 +75,7 @@ orgs:
 users:
   - name: dgellow
     sshkeys:
-      - from: https
+      - type: url
         val: github.com/dgellow.keys
     orgs:
       - id: qrclabs
@@ -87,9 +85,9 @@ users:
       - id: fixme
   - name: notgcmalloc
     sshkeys:
-      - from: hardcoded
+      - type: hardcoded
         val: ssh-rsa AAAAB3NzaC1[truncated for the sake of readability]+MWYbwK1Tgx
-      - from: file
+      - type: file
         val: /path/to/file
     orgs:
       - id: fixme
